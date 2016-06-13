@@ -17,7 +17,47 @@ public class Voluntario {
     private String rg;
     private String login;
     private String senha;
+    private String telefone;
+    private String celular;
+    private String email;
+    private Endereco endereco;
+    
+    
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+   
+    
+    
+    
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+   
     public String getNome() {
         return nome;
     }
