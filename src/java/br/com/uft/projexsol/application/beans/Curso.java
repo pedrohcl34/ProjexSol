@@ -11,11 +11,11 @@ package br.com.uft.projexsol.application.beans;
  */
 public class Curso {
     private String nome;
-    private String codigo;
-
+    private int codigo;
+    
 
     
-    public Curso(String nome, String codigo){
+    public Curso(String nome, int codigo){
         this.nome = nome;
         this.codigo = codigo;
     }
@@ -28,11 +28,11 @@ public class Curso {
         this.nome = nome;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 }

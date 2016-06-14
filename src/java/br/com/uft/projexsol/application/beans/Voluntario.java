@@ -12,7 +12,7 @@ package br.com.uft.projexsol.application.beans;
 
 public class Voluntario {
     private String nome;
-    private String codigo;
+    private int codigo;
     private String cpf;
     private String rg;
     private String login;
@@ -23,6 +23,19 @@ public class Voluntario {
     private Endereco endereco;
     
     
+    
+    public Voluntario(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco){
+        setCodigo(codigo);
+        setNome(nome);
+        setCpf(cpf);
+        setRg(rg);
+        setLogin(login);
+        setSenha(senha);
+        setTelefone(telefone);
+        setCelular(celular);
+        setEmail(email);
+        setEndereco(endereco);
+    }
     public Endereco getEndereco() {
         return endereco;
     }
@@ -66,11 +79,11 @@ public class Voluntario {
         this.nome = nome;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

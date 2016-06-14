@@ -9,6 +9,29 @@ package br.com.uft.projexsol.application.beans;
  *
  * @author aluno
  */
-public class Docente {
-    
+public class Docente extends Voluntario{
+    private Curso curso;
+    private Departamento departamento;
+
+    public Docente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, Departamento departamento) {
+        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco);
+        this.curso = curso;
+        this.departamento = departamento;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
 }

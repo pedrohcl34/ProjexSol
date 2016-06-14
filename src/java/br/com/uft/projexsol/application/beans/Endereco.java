@@ -11,7 +11,9 @@ package br.com.uft.projexsol.application.beans;
  */
 public class Endereco {
 
-    
+
+
+    private int codigo;
     private String logradouro;
     private String bairro;
     private String uf;
@@ -19,13 +21,22 @@ public class Endereco {
     private String cep;
     private String numero;
     
-    public Endereco(String logradouro, String numero,String bairro, String cidade,String uf, String cep){
+    public Endereco(int codigo,String logradouro, String numero,String bairro, String cidade,String uf, String cep){
+        this.codigo = codigo;
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
         this.cep = cep;
+    }
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     public String getLogradouro() {
