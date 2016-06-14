@@ -5,6 +5,8 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aluno
@@ -13,8 +15,8 @@ public class Docente extends Voluntario{
     private Curso curso;
     private Departamento departamento;
 
-    public Docente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, Departamento departamento) {
-        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco);
+    public Docente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, ArrayList<AreaDeInteresses> areasDeInteresses,Departamento departamento) {
+        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco,areasDeInteresses);
         this.curso = curso;
         this.departamento = departamento;
     }

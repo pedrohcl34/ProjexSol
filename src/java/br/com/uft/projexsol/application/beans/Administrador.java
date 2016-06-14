@@ -12,7 +12,7 @@ package br.com.uft.projexsol.application.beans;
 public class Administrador  extends Voluntario{
 
     public Administrador(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco) {
-        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco);
+        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco,null);
     }
     
 }

@@ -15,8 +15,8 @@ public class Discente extends Voluntario {
     private Curso curso;
     private ArrayList<Disciplina> disciplinas;
 
-    public Discente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, ArrayList<Disciplina> diciplinas) {
-        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco);
+    public Discente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, ArrayList<AreaDeInteresses> areasDeInteresses,ArrayList<Disciplina> diciplinas) {
+        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco,areasDeInteresses);
         this.curso = curso;
         this.disciplinas = diciplinas;
     }

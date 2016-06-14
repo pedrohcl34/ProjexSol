@@ -5,6 +5,8 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aluno
@@ -21,10 +23,10 @@ public class Voluntario {
     private String celular;
     private String email;
     private Endereco endereco;
+    private ArrayList<AreaDeInteresses> areasDeInteresses;
     
     
-    
-    public Voluntario(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco){
+    public Voluntario(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, ArrayList<AreaDeInteresses> areasDeInteresses){
         setCodigo(codigo);
         setNome(nome);
         setCpf(cpf);
@@ -35,6 +37,7 @@ public class Voluntario {
         setCelular(celular);
         setEmail(email);
         setEndereco(endereco);
+        this.areasDeInteresses = areasDeInteresses;
     }
     public Endereco getEndereco() {
         return endereco;
