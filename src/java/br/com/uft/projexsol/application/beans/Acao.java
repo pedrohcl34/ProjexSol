@@ -5,14 +5,19 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author PedroLima
  */
-public class Acao {
+@Entity
+public class Acao implements Serializable{
+    @Id
     private int codigo;
     private String nome;
     private Date dataInicial;

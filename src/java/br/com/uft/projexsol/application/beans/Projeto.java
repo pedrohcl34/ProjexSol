@@ -31,6 +31,16 @@ public class Projeto {
     private boolean autorizado;
     private ArrayList<Oportunidade> oportunidades;
     private ITS instituicaoTerceiroSetor;
+    
+    private ArrayList<Avaliacao> avaliacoesProjeto;
+
+    public ArrayList<Avaliacao> getAvaliacoesProjeto() {
+        return avaliacoesProjeto;
+    }
+
+    public void setAvaliacoesProjeto(ArrayList<Avaliacao> avaliacoesProjeto) {
+        this.avaliacoesProjeto = avaliacoesProjeto;
+    }
 
     public ITS getInstituicaoTerceiroSetor() {
         return instituicaoTerceiroSetor;

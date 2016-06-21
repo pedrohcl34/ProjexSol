@@ -5,24 +5,41 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author aluno
  */
-
-public class Voluntario {
+@Entity
+public class Voluntario  implements Serializable{
+    @Column
     private String nome;
+    @Id
     private int codigo;
+    @Column
     private String cpf;
+    @Column
     private String rg;
+    @Column
     private String login;
+    @Column
     private String senha;
+    @Column
     private String telefone;
+    @Column
     private String celular;
+    @Column
     private String email;
+    @OneToOne
     private Endereco endereco;
+    @OneToMany
     private ArrayList<AreaDeInteresses> areasDeInteresses;
     
     
