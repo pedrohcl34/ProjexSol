@@ -11,11 +11,10 @@
     <body onload="PF('dlg').show();">
         
         <h:form>            
-    
- 
+          
     <p:growl  id="growl" sticky="true" showDetail="true" life="3000" />
  
-    <p:dialog draggable = "false" closable = "false" header="Cadastro Voluntário" widgetVar="dlg" resizable="false">
+    <p:dialog responsive="true" draggable = "false" closable = "false" header="Cadastro Voluntário" widgetVar="dlg" resizable="false">
         <h:panelGrid columns="4" cellpadding="5">
             <h:outputLabel for="Nome" value="Nome:" />
             <p:inputText id="n" value="#{userLoginView.username}" required="true" label="Nome" />
@@ -27,7 +26,7 @@
             <p:inputText id="codigo" value="#{userLoginView.username}" required="true" label="Código" />
  
             <h:outputLabel for="RG" value="RG:" />
-            <p:password id="rg" value="#{userLoginView.username}" required="true" label="RG" />
+            <p:password id="rg" value=" " required="true" label="RG" />
             
             <h:outputLabel for="Username" value="Username:" />
             <p:password id="username" value="#{userLoginView.username}" required="true" label="Username" />
@@ -50,9 +49,6 @@
             
             <h:outputLabel for="Areas de interesse" value="Areas de interesse:" />
             <p:password id="areasdeinteresse" value="#{userLoginView.password}" required="true" label="Endereço" />
-            
-            
-            
             
  
             <f:facet name="footer">

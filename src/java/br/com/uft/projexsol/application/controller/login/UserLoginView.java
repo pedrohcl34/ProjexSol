@@ -45,8 +45,9 @@ public class UserLoginView {
             RequestContext context = RequestContext.getCurrentInstance();
             FacesMessage message = null;
             boolean loggedIn = false;
-            List<Voluntario> voluntarios = new GenericDAO().listar(Voluntario.class);
+            //List<Voluntario> voluntarios = new GenericDAO().listar(Voluntario.class);
             if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
+               
                 loggedIn = true;
                 message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
             } else {

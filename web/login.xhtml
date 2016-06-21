@@ -15,7 +15,7 @@
  
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
  
-    <p:dialog draggable = "false" closable = "false" header="Login" widgetVar="dlg" resizable="false">
+    <p:dialog responsive="true"  draggable = "false" closable = "false" header="Login" widgetVar="dlg" resizable="false">
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="username" value="Username:" />
             <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
