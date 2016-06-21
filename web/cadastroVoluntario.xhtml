@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Cadastro Voluntário</title>
+    </h:head>
+    <body onload="PF('dlg').show();">
+        
+        <h:form>            
+    
+ 
+    <p:growl  id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog draggable = "false" closable = "false" header="Cadastro Voluntário" widgetVar="dlg" resizable="false">
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="Nome" value="Nome:" />
+            <p:inputText id="n" value="#{userLoginView.username}" required="true" label="Nome" />
+            
+            <h:outputLabel for="CPF" value="CPF:" />
+            <p:inputText id="cpf" value="#{userLoginView.username}" required="true" label="CPF" />
+            
+            <h:outputLabel for="Código" value="Código:" />
+            <p:inputText id="codigo" value="#{userLoginView.username}" required="true" label="Código" />
+ 
+            <h:outputLabel for="RG" value="RG:" />
+            <p:password id="rg" value="#{userLoginView.username}" required="true" label="RG" />
+            
+            <h:outputLabel for="Username" value="Username:" />
+            <p:password id="username" value="#{userLoginView.username}" required="true" label="Username" />
+            
+            <h:outputLabel for="Password" value="Password:" />
+            <p:password id="password" value="#{userLoginView.password}" required="true" label="Password" />
+            
+            <h:outputLabel for="Telefone" value="Telefone:" />
+            <p:password id="telefone" value="#{userLoginView.password}" required="true" label="Telefone" />
+            
+            <h:outputLabel for="Celular" value="Celular:" />
+            <p:password id="celular" value="#{userLoginView.password}" required="true" label="Celular" />
+            
+           
+            <h:outputLabel for="email" value="Email:" />
+            <p:password id="email" value="#{userLoginView.password}" required="true" label="Email" />
+            
+            <h:outputLabel for="Endereço" value="Endereço:" />
+            <p:password id="endereco" value="#{userLoginView.password}" required="true" label="Endereço" />
+            
+            <h:outputLabel for="Areas de interesse" value="Areas de interesse:" />
+            <p:password id="areasdeinteresse" value="#{userLoginView.password}" required="true" label="Endereço" />
+            
+            
+            
+            
+ 
+            <f:facet name="footer">
+                <p:commandButton value="Cadastrar" update="growl" actionListener="#{userLoginView.login}"
+                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+            </f:facet>  
+        </h:panelGrid>
+    </p:dialog>
+</h:form>
+ 
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+    </body>
+</html>
+

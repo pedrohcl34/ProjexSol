@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:head>
-        <title>Facelet Title</title>
+        <title>Login</title>
     </h:head>
     <body onload="PF('dlg').show();">
         
@@ -15,7 +15,7 @@
  
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
  
-    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+    <p:dialog draggable = "false" closable = "false" header="Login" widgetVar="dlg" resizable="false">
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="username" value="Username:" />
             <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
