@@ -6,17 +6,31 @@
 package br.com.uft.projexsol.application.beans;
 
 import java.util.ArrayList;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author aluno
  */
-public class Docente extends Voluntario{
+public class Docente extends Voluntario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private Curso curso;
+    @Size(max = 60)
     private Departamento departamento;
 
-    public Docente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, ArrayList<AreaDeInteresses> areasDeInteresses,Departamento departamento) {
-        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco,areasDeInteresses);
+    public Docente(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, Curso curso, ArrayList<AreaDeInteresses> areasDeInteresses, Departamento departamento) {
+        super(codigo, nome, cpf, rg, login, senha, telefone, celular, email, endereco, areasDeInteresses);
         this.curso = curso;
         this.departamento = departamento;
     }

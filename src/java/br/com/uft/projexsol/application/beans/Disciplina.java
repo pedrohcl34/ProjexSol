@@ -5,28 +5,48 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author PedroLima
  */
 public class Disciplina {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private int codigo;
+    @Size(max = 60)
     private String nome;
+    @Size(max = 20)
     private Curso curso;
+    @Size(max = 60)
     private Docente docente;
-    
-    public Disciplina(int codigo, String nome, Curso curso, Docente docente){
+
+    public Disciplina(int codigo, String nome, Curso curso, Docente docente) {
         this.codigo = codigo;
         this.nome = nome;
         this.curso = curso;
         this.docente = docente;
     }
-    public String getNome(){
-     return nome;   
+
+    public String getNome() {
+        return nome;
     }
-    public void setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
+
     public int getCodigo() {
         return codigo;
     }

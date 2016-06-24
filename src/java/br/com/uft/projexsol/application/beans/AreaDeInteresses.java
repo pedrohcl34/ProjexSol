@@ -5,13 +5,28 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author aluno
  */
 public class AreaDeInteresses {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private int codigo;
+    @Size(max = 60)
     private String nome;
+    @Size(max = 200)
     private String descricao;
 
     public AreaDeInteresses(int codigo, String nome, String descricao) {

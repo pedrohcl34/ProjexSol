@@ -6,19 +6,40 @@
 package br.com.uft.projexsol.application.beans;
 
 import java.util.ArrayList;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author PedroLima
  */
 public class InstituicaoDeEnsino {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+
     private int codigo;
+    @Size(max = 120)
     private String nome;
+    @Size(max = 18)
     private String cnpj;
+    @Size(max = 200)
     private Endereco endereco;
+    @Size(max = 60)
     private String email;
+    @Size(max = 2)
     private String estado;
+    @Size(max = 20)
     private String telefone;
+    @OneToOne
     private ArrayList<Departamento> departamentos;
 
     public InstituicaoDeEnsino(int codigo, String nome, String cnpj, Endereco endereco, String email, String telefone, String estado) {
@@ -39,7 +60,6 @@ public class InstituicaoDeEnsino {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
 
     public int getCodigo() {
         return codigo;
@@ -96,5 +116,5 @@ public class InstituicaoDeEnsino {
     public void setDepartamentos(ArrayList<Departamento> departamentos) {
         this.departamentos = departamentos;
     }
-    
+
 }

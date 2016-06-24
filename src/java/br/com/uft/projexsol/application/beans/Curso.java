@@ -5,21 +5,34 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author aluno
  */
 public class Curso {
-    private String nome;
-    private int codigo;
-    
 
-    
-    public Curso(String nome, int codigo){
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
+    private int codigo;
+    @Size(max = 60)
+    private String nome;
+
+    public Curso(String nome, int codigo) {
         this.nome = nome;
         this.codigo = codigo;
     }
-    
+
     public String getNome() {
         return nome;
     }

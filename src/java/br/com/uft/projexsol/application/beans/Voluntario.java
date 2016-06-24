@@ -7,21 +7,31 @@ package br.com.uft.projexsol.application.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author aluno
  */
 @Entity
-public class Voluntario  implements Serializable{
+public class Voluntario implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     @Column
     private String nome;
-    @Id
+    @Size(max = 60)
     private int codigo;
     @Column
     private String cpf;
@@ -41,9 +51,8 @@ public class Voluntario  implements Serializable{
     private Endereco endereco;
     @OneToMany
     private ArrayList<AreaDeInteresses> areasDeInteresses;
-    
-    
-    public Voluntario(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, ArrayList<AreaDeInteresses> areasDeInteresses){
+
+    public Voluntario(int codigo, String nome, String cpf, String rg, String login, String senha, String telefone, String celular, String email, Endereco endereco, ArrayList<AreaDeInteresses> areasDeInteresses) {
         setCodigo(codigo);
         setNome(nome);
         setCpf(cpf);
@@ -56,6 +65,7 @@ public class Voluntario  implements Serializable{
         setEndereco(endereco);
         this.areasDeInteresses = areasDeInteresses;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
@@ -63,10 +73,7 @@ public class Voluntario  implements Serializable{
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-   
-    
-    
-    
+
     public String getTelefone() {
         return telefone;
     }
@@ -90,7 +97,7 @@ public class Voluntario  implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-   
+
     public String getNome() {
         return nome;
     }
@@ -138,6 +145,5 @@ public class Voluntario  implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+
 }

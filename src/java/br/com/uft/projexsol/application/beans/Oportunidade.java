@@ -6,30 +6,51 @@
 package br.com.uft.projexsol.application.beans;
 
 import java.util.ArrayList;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author PedroLima
  */
 public class Oportunidade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @NotNull
     private int codigo;
+    @Size(max = 120)
     private String nome;
+    @Size(max = 120)
     private String descricao;
+    @Size(max = 120)
     private AreaDeInteresses areaDeInteresses;
-    private ArrayList<Voluntario> voluntarios;
+    @OneToMany
+    private final ArrayList<Voluntario> voluntarios;
+
     public Oportunidade(int codigo, String nome, String descricao, AreaDeInteresses areaDeInteresses) {
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
         this.areaDeInteresses = areaDeInteresses;
         voluntarios = new ArrayList<>();
-        
+
     }
-    
-    
-    public void addVoluntario(Voluntario voluntario){
+
+    public void addVoluntario(Voluntario voluntario) {
         voluntarios.add(voluntario);
     }
+
     public int getCodigo() {
         return codigo;
     }
@@ -61,5 +82,5 @@ public class Oportunidade {
     public void setAreaDeInteresses(AreaDeInteresses areaDeInteresses) {
         this.areaDeInteresses = areaDeInteresses;
     }
-    
+
 }

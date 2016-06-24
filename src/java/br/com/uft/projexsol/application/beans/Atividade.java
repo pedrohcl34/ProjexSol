@@ -8,18 +8,42 @@ package br.com.uft.projexsol.application.beans;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.ejb.Timeout;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author PedroLima
  */
 public class Atividade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private int codigo;
+    @Size(max = 60)
     private String nomeAtividae;
+    @Size(max = 60)
     private ArrayList<Beneficiario> beneficiarios;
+    @Size(max = 100)
     private Endereco local;
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp horario;
+    @Temporal(TemporalType.DATE)
+    @NotNull
     private Date dataInicio;
+    @Temporal(TemporalType.DATE)
     private Date dataFinal;
 
     public Atividade(int codigo, String nomeAtividae, ArrayList<Beneficiario> beneficiarios, Endereco local, Timestamp horario, Date dataInicio, Date dataFinal) {
@@ -31,9 +55,7 @@ public class Atividade {
         this.dataInicio = dataInicio;
         this.dataFinal = dataFinal;
     }
-    
-    
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -89,5 +111,5 @@ public class Atividade {
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
     }
-    
+
 }

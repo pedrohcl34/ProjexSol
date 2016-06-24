@@ -5,23 +5,40 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author aluno
  */
 public class Endereco {
 
-
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private int codigo;
+    @Size(max = 10)
     private String logradouro;
+    @Size(max = 40)
     private String bairro;
+    @Size(max = 2)
     private String uf;
+    @Size(max = 40)
     private String cidade;
+    @Size(max = 60)
     private String cep;
+    @Size(max = 5)
     private String numero;
-    
-    public Endereco(int codigo,String logradouro, String numero,String bairro, String cidade,String uf, String cep){
+
+    public Endereco(int codigo, String logradouro, String numero, String bairro, String cidade, String uf, String cep) {
         this.codigo = codigo;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -30,7 +47,7 @@ public class Endereco {
         this.uf = uf;
         this.cep = cep;
     }
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -38,7 +55,7 @@ public class Endereco {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
+
     public String getLogradouro() {
         return logradouro;
     }

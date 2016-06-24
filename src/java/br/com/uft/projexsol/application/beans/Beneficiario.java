@@ -5,13 +5,28 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author PedroLima
  */
 public class Beneficiario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 60)
     private int codigo;
+    @Size(max = 60)    
     private String nomeCompleto;
+    @Size(max = 40)    
     private String rg;
 
    

@@ -5,18 +5,38 @@
  */
 package br.com.uft.projexsol.application.beans;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author PedroLima
  */
 public class DetalhesProjeto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     private int codigo;
+    @Size(max = 600)
     private String justificativa;
+    @Size(max = 600)
     private String objetivos;
+    @Size(max = 600)
     private String metas;
+    @Size(max = 600)
     private String metodologia;
+    @Size(max = 600)
     private String sistemaDeAvaliacao;
+    @Size(max = 600)
     private String bibliografiaBasica;
+    @Size(max = 600)
     private String convenio;
 
     public DetalhesProjeto(int codigo, String justificativa, String objetivos, String metas, String metodologia, String sistemaDeAvaliacao, String bibliografiaBasica, String convenio) {

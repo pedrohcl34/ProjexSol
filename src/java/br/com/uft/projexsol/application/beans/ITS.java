@@ -6,6 +6,13 @@
 package br.com.uft.projexsol.application.beans;
 
 import java.util.ArrayList;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -13,19 +20,32 @@ import java.util.ArrayList;
  */
 public class ITS {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     private int codigo;
+    @Size(max = 120)
     private String nome;
+    @Size(max = 18)
     private String cnpj;
+    @Size(max = 20)
     private String tipoInstituicao;
+    @Size(max = 200)
     private Endereco endereco;
+    @Size(max = 60)
     private String email;
+    @Size(max = 120)
     private String diretor;
+    @Size(max = 60)
     private String funcao;
+    @Size(max = 60)
     private String telefone;
+    @OneToMany
     private ArrayList<AreaDeInteresses> areasDeInteresses;
-    
-    public ITS(int codigo, String nome, String cnpj, String tipoInstituicao, Endereco endereco, String email, String diretor, String funcao, String telefone, ArrayList<AreaDeInteresses> areasDeInteresses){
+
+    public ITS(int codigo, String nome, String cnpj, String tipoInstituicao, Endereco endereco, String email, String diretor, String funcao, String telefone, ArrayList<AreaDeInteresses> areasDeInteresses) {
         this.codigo = codigo;
         this.nome = nome;
         this.cnpj = cnpj;
@@ -37,8 +57,8 @@ public class ITS {
         this.telefone = telefone;
         this.areasDeInteresses = areasDeInteresses;
     }
-    
-        public int getCodigo() {
+
+    public int getCodigo() {
         return codigo;
     }
 
@@ -117,5 +137,5 @@ public class ITS {
     public void setAreasDeInteresses(ArrayList<AreaDeInteresses> areasDeInteresses) {
         this.areasDeInteresses = areasDeInteresses;
     }
-    
+
 }

@@ -8,30 +8,64 @@ package br.com.uft.projexsol.application.beans;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author PedroLima
  */
 public class Projeto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     private int codigo;
     private Voluntario gerenteProjeto;
     private double custoProjeto;
     private DetalhesProjeto detalhes;
     private Date dataCriacao;
+    @Size(max = 120)
     private String linhaProgramatica;
+    @Size(max = 120)
     private String areaDirex;
+    @Size(max = 120)
     private String linhaDirex;
+    @Size(max = 120)
     private String numOrdemDirex;
+    @Size(max = 120)
     private String numRegistroDirex;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "dataInicial")
+    @Temporal(TemporalType.DATE)
     private Date dataInicial;
+    @Basic(optional = false)
+    @Column(name = "dataFinal")
+    @Temporal(TemporalType.DATE)
     private Date dataFinal;
+    @OneToMany
     private ArrayList<AreaDeInteresses> areasDeInteresses;
+    @Column(name = "fomentoProjeto")
     private FomentoProjeto dadosFomento;
+
     private boolean autorizado;
+    @OneToMany
     private ArrayList<Oportunidade> oportunidades;
+    @OneToOne
     private ITS instituicaoTerceiroSetor;
-    
+    @OneToMany
     private ArrayList<Avaliacao> avaliacoesProjeto;
 
     public ArrayList<Avaliacao> getAvaliacoesProjeto() {
@@ -57,8 +91,7 @@ public class Projeto {
     public void setOportunidades(ArrayList<Oportunidade> oportunidades) {
         this.oportunidades = oportunidades;
     }
-    
-    
+
     public boolean autorizado() {
         return autorizado;
     }
@@ -74,7 +107,7 @@ public class Projeto {
     public void setAcoes(ArrayList<Acao> acoes) {
         this.acoes = acoes;
     }
-    
+
     private ArrayList<Acao> acoes;
 
     public Date getDataCriacao() {
@@ -157,8 +190,6 @@ public class Projeto {
         this.dadosFomento = dadosFomento;
     }
 
-    
-    
     public int getCodigo() {
         return codigo;
     }
@@ -190,6 +221,5 @@ public class Projeto {
     public void setDetalhes(DetalhesProjeto detalhes) {
         this.detalhes = detalhes;
     }
-    
-    
+
 }
